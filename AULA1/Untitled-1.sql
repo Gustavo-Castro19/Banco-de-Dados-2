@@ -77,9 +77,9 @@ id_cliente INTEGER,
 numero_conta INTEGER NOT NULL UNIQUE,
 saldo decimal,
 data_abertura DATETIME NOT NULL,
-status_conta BOOL NOT NULL,
+status_conta BOOLEAN NOT NULL,
 FOREIGN KEY(id_usario) REFERENCES usuario(id_usuario),
-FOREIGN KEY(id_cliente) REFERENCES cliente(id_cliente)
+FOREIGN KEY(id_cliente) REFERENCES clientes(id_cliente)
 );
 
 CREATE TABLE conta_investimento(
@@ -103,7 +103,7 @@ CREATE TABLE conta_corrente(
 id_conta_corrente INTEGER primary key auto_increment,
 id_conta INTEGER,
 limite DECIMAL,
-data_de_vencimento DATETIME,
+data_de_vencimento DATE NOT NULL,
 taxa_manutencao DECIMAL,
 FOREIGN KEY(id_conta) REFERENCES conta(id_conta)
 );
